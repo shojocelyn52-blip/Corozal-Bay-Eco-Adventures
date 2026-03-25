@@ -1,0 +1,384 @@
+
+<html>
+<head>
+    <title>Corozal Bay EcoAdventures - Contact Us</title>
+    <style>
+
+        body {
+            font-family: Georgia; color: white; text-align: center;
+            margin: 0; padding: 0;
+            background-image: url('Belize reef.jpg');
+            background-size: cover; background-position: center; background-attachment: fixed;
+        }
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(4, 22, 40, 0.65); z-index: -1; pointer-events: none;
+        }
+
+        .navbar {
+            background-color: rgba(6, 38, 66, 0.98);
+            padding: 0 30px; border-bottom: 4px solid #0fa39a;
+            position: relative; z-index: 10;
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 8px; min-height: 64px;
+        }
+        .navbar-logo img {
+            height: 48px; width: auto; border-radius: 4px;
+            background: white; padding: 4px; margin: 8px 0;
+        }
+        .navbar-links { display: flex; flex-wrap: wrap; gap: 4px; padding: 8px 0; }
+        .navbar-links a {
+            color: white; text-decoration: none; font-size: 14px;
+            font-weight: bold; padding: 9px 18px; margin: 0 2px; border-radius: 6px;
+        }
+        .navbar-links a:hover { background-color: #0fa39a; color: white; }
+        .navbar-links a.active { background-color: #1a6b2e; color: white; border: 2px solid #0fa39a; }
+
+        .banner {
+            background: linear-gradient(135deg, rgba(6,38,66,0.93) 0%, rgba(10,65,40,0.88) 50%, rgba(6,38,66,0.93) 100%);
+            padding: 60px 20px 50px; position: relative; z-index: 1;
+            border-bottom: 4px solid #e8841a;
+        }
+        .banner h1 {
+            font-family: Georgia; font-size: 50px;
+            text-shadow: 2px 2px 10px black; padding: 0; background: none; margin-bottom: 6px;
+        }
+        .word-corozal { color: #1a5fa0; }
+        .word-bay     { color: #0fa39a; }
+        .word-eco     { color: #1a6b2e; }
+        .word-adv     { color: #e8841a; }
+        .banner p { font-size: 16px; color: #c8f5e8; margin-top: 10px; letter-spacing: 3px; }
+
+        .stats-bar {
+            background-color: #e8841a;
+            display: flex; justify-content: center; flex-wrap: wrap;
+            position: relative; z-index: 1;
+        }
+        .stat-box {
+            padding: 18px 42px;
+            border-right: 1px solid rgba(255,255,255,0.25); color: white;
+        }
+        .stat-box:last-child { border-right: none; }
+        .stat-box strong { display: block; font-size: 22px; font-family: Georgia; }
+        .stat-box span { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.85; }
+
+        .intro {
+            background-color: rgba(255,255,255,0.75); color: black;
+            padding: 26px 48px; margin: 26px 40px;
+            border-left: 6px solid #e8841a;
+            border-radius: 12px; text-align: left; position: relative; z-index: 1;
+        }
+        .intro h2 {
+            font-family: Georgia; color: #062642; font-size: 22px;
+            background: none; padding: 0 0 8px 0; margin-bottom: 10px;
+            border-bottom: 2px dashed #e8841a;
+        }
+        .intro p { font-size: 15px; line-height: 1.9; color: #222; }
+
+       
+        .section-card {
+            background-color: rgba(255,255,255,0.75); color: black;
+            margin: 26px 40px; padding: 28px; border-radius: 14px;
+            text-align: left; position: relative; z-index: 1;
+        }
+        .section-card.teal-top   { border-top: 6px solid #0fa39a; }
+        .section-card.green-top  { border-top: 6px solid #1a6b2e; }
+        .section-card.blue-top   { border-top: 6px solid #1a5fa0; }
+        .section-card.orange-top { border-top: 6px solid #e8841a; }
+
+        .section-card h1 {
+            color: white; padding: 14px 20px; border-radius: 8px;
+            font-family: Georgia; font-size: 24px; margin-bottom: 14px;
+        }
+        .navy-h1   { background-color: #062642; }
+        .green-h1  { background-color: #1a6b2e; }
+        .blue-h1   { background-color: #1a5fa0; }
+        .orange-h1 { background-color: #c06010; }
+
+        .section-card h2 {
+            color: white; padding: 11px 18px; border-radius: 8px;
+            font-size: 19px; margin: 16px 0 12px;
+        }
+        .h2-teal   { background-color: #0fa39a; }
+        .h2-green  { background-color: #1a6b2e; }
+        .h2-blue   { background-color: #1a5fa0; }
+        .h2-orange { background-color: #e8841a; }
+
+        .section-card p { font-size: 15px; line-height: 1.8; color: #222; margin-bottom: 10px; }
+        .section-card ul { font-size: 15px; line-height: 2.2; padding-left: 10px; color: #222; list-style: none; }
+        .section-card ul li { padding: 3px 0 3px 8px; }
+
+     
+        .contact-grid { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; margin: 14px 0; }
+        .contact-box { border-radius: 10px; padding: 22px 20px; width: 210px; text-align: center; color: white; }
+        .cb-green  { background-color: #1a6b2e; border: 2px solid #2d9a4a; }
+        .cb-teal   { background-color: #0fa39a; border: 2px solid #12c0b6; }
+        .cb-orange { background-color: #e8841a; border: 2px solid #f09a30; }
+        .cb-blue   { background-color: #1a5fa0; border: 2px solid #2a7fd0; }
+        .contact-box .c-icon { font-size: 2rem; margin-bottom: 10px; }
+        .contact-box h4 { font-family: Georgia; font-size: 14px; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 6px; }
+        .contact-box p { font-size: 13px; opacity: 0.9; line-height: 1.6; margin: 0; color: white; }
+        .contact-box a { color: white; text-decoration: underline; }
+
+        
+        .social-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin: 14px 0; }
+        .social-btn { display: inline-flex; align-items: center; gap: 8px; border-radius: 30px; padding: 11px 26px; font-family: Georgia; font-size: 14px; font-weight: bold; text-decoration: none; color: white; }
+        .fb-btn  { background-color: #1a5fa0; border: 2px solid #2a7fd0; }
+        .ig-btn  { background-color: #e8841a; border: 2px solid #f09a30; }
+        .social-btn:hover { opacity: 0.85; color: white; text-decoration: none; }
+
+      
+        .img-row { text-align: center; margin: 18px 0; }
+        .img-row img {
+            border-radius: 10px; box-shadow: 5px 5px 16px rgba(0,0,0,0.5);
+            margin: 8px; width: 260px; height: 175px; object-fit: cover;
+        }
+        .img-row img:nth-child(1) { border: 4px solid #0fa39a; }
+        .img-row img:nth-child(2) { border: 4px solid #e8841a; }
+        .img-row img:nth-child(3) { border: 4px solid #1a5fa0; }
+
+        
+        .form-card {
+            background: linear-gradient(135deg, rgba(6,38,66,0.95) 0%, rgba(10,65,40,0.93) 100%);
+            margin: 26px 40px; padding: 34px 48px; border-radius: 14px;
+            text-align: left; color: white; border-top: 6px solid #0fa39a;
+            position: relative; z-index: 1;
+        }
+        .form-card h2 {
+            font-family: Georgia; font-size: 26px; color: #0fa39a; text-align: center;
+            margin-bottom: 8px; background: none; padding: 0;
+            border-bottom: 2px solid rgba(255,255,255,0.15); padding-bottom: 12px;
+        }
+        .form-card > p { color: #c8f5e8; font-size: 15px; text-align: center; margin-bottom: 22px; }
+        .form-row { display: flex; gap: 16px; margin-bottom: 14px; flex-wrap: wrap; }
+        .form-group { display: flex; flex-direction: column; gap: 5px; flex: 1; min-width: 200px; }
+        .form-group label { font-size: 12px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; color: #0fa39a; }
+        .form-group input, .form-group select, .form-group textarea {
+            background-color: rgba(255,255,255,0.08); border: 1.5px solid rgba(255,255,255,0.2);
+            border-radius: 6px; padding: 11px 14px; font-family: Georgia; font-size: 14px;
+            color: white; outline: none;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: #0fa39a; background-color: rgba(255,255,255,0.12);
+        }
+        .form-group select option { color: black; }
+        .form-group textarea { height: 130px; resize: vertical; }
+        .btn-send {
+            background-color: #0fa39a; color: white; font-family: Georgia; font-size: 15px;
+            font-weight: bold; padding: 13px 40px; border: none; border-radius: 8px;
+            cursor: pointer; display: block; margin: 18px auto 0; letter-spacing: 1px;
+        }
+        .btn-send:hover { background-color: #12c0b6; }
+        #form-success { text-align: center; color: #0fa39a; font-size: 16px; font-weight: bold; margin-top: 14px; display: none; }
+
+        .closing {
+            background: linear-gradient(135deg, rgba(6,38,66,0.95) 0%, rgba(10,65,40,0.93) 100%);
+            margin: 26px 40px; padding: 34px; border-radius: 14px;
+            text-align: center; color: white; position: relative; z-index: 1;
+            border: 2px solid rgba(232,132,26,0.4);
+        }
+        .closing h2 {
+            background: none; color: #e8841a; font-family: Georgia; font-size: 26px;
+            padding: 0 0 12px 0; margin-bottom: 14px;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+        }
+        .closing p { color: #c8f5e8; font-size: 16px; line-height: 1.8; }
+        .closing a { color: #e8841a; font-weight: bold; text-decoration: none; }
+        .closing a:hover { color: white; text-decoration: underline; }
+
+        .logos {
+            background-color: #062642; padding: 28px 20px; margin-top: 20px;
+            position: relative; z-index: 1; border-top: 3px solid #e8841a;
+        }
+        .logos p { color: #0fa39a; font-size: 14px; font-weight: bold; letter-spacing: 2px; margin-bottom: 14px; }
+        .logos img { height: 70px; width: auto; margin: 14px 16px; background-color: white; border-radius: 8px; padding: 6px; object-fit: contain; vertical-align: middle; }
+
+        .footer { background-color: #030d18; color: #7abfa0; padding: 14px; font-size: 13px; position: relative; z-index: 2; }
+
+        a { color: #0fa39a; font-weight: bold; text-decoration: none; }
+        a:hover { color: #e8841a; text-decoration: underline; }
+
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="cbea_home.html" class="navbar-logo">
+            <img src="1774136212045_image.png" alt="CBEA Logo" onerror="this.style.display='none'" />
+        </a>
+        <div class="navbar-links">
+            <a href="index.html">&#127968; Home</a>
+            <a href="sustainablity.html">&#127807; Sustainability</a>
+            <a href="Experiences.html">&#127758; Experiences</a>
+            <a href="openday.html">&#127881; Open Day</a>
+            <a href="contact.html" class="active">&#9993; Contact</a>
+        </div>
+    </div>
+
+    <div class="banner">
+        <h1>
+            <span class="word-corozal">Corozal</span>
+            <span class="word-bay"> Bay </span>
+            <span class="word-eco">Eco</span><span class="word-adv">Adventures</span>
+        </h1>
+        <p>Contact Us &mdash; We Would Love to Hear From You!</p>
+    </div>
+
+    <div class="stats-bar">
+        <div class="stat-box"><strong>48 hrs</strong><span>Response Time</span></div>
+        <div class="stat-box"><strong>WhatsApp</strong><span>Available</span></div>
+        <div class="stat-box"><strong>English</strong><span>Spoken</span></div>
+        <div class="stat-box"><strong>Groups</strong><span>Welcome</span></div>
+    </div>
+
+    <div class="intro">
+        <h2>We Are Here to Help! &#9993;</h2>
+        <p>
+            Whether you are planning a <b>student group expedition</b>, a personal eco-adventure,
+            or looking to partner with CBEA as a tour operator or educational institution —
+            our team is ready to help you design the perfect Belize experience.
+            Fill in the contact form below, reach us on WhatsApp, or follow us on social media.
+            <b>No question is too big or too small!</b> &#127807;
+        </p>
+    </div>
+
+   
+    <div class="section-card teal-top">
+        <h1 class="navy-h1">&#127758; Find Us</h1>
+        <p>Here are all the ways you can reach the CBEA team. We typically respond within 48 hours.</p>
+        <div class="contact-grid">
+            <div class="contact-box cb-green">
+                <div class="c-icon">&#128205;</div>
+                <h4>Address</h4>
+                <p>Sarteneja Village<br>Corozal District<br>Belize, Central America</p>
+            </div>
+            <div class="contact-box cb-teal">
+                <div class="c-icon">&#128231;</div>
+                <h4>Email</h4>
+                <p><a href="mailto:info@cbea.belize">info@cbea.belize</a><br><br>Groups:<br><a href="mailto:groups@cbea.belize">groups@cbea.belize</a></p>
+            </div>
+            <div class="contact-box cb-orange">
+                <div class="c-icon">&#128242;</div>
+                <h4>Phone / WhatsApp</h4>
+                <p>+501 XXX-XXXX<br><br>Mon – Sat<br>8:00 AM – 5:00 PM BZT</p>
+            </div>
+            <div class="contact-box cb-blue">
+                <div class="c-icon">&#9992;</div>
+                <h4>Getting Here</h4>
+                <p>From Belize City: ~2.5 hrs<br>From Chetumal MX: ~1.5 hrs<br>From PGIA Airport: ~2 hrs<br>Transfers available!</p>
+            </div>
+        </div>
+
+        <h2 class="h2-blue">&#127758; Follow Us on Social Media</h2>
+        <div class="social-row">
+            <a href="https://www.facebook.com/CBEA.Belize" target="_blank" class="social-btn fb-btn">
+                &#128241; Facebook — @CBEA.Belize
+            </a>
+            <a href="https://www.instagram.com/cbea.belize" target="_blank" class="social-btn ig-btn">
+                &#128247; Instagram — @cbea.belize
+            </a>
+        </div>
+
+        <div class="img-row">
+            <img src="project_-mangroves-in-madagascar-eden-reforestation-2-medium.png" alt="Sarteneja Belize mangroves" onerror="this.style.display='none'" />
+            <img src="bacalar%20chico.jfif" alt="Belize reef" onerror="this.style.display='none'" />
+            <img src="maya site.jfif" alt="Altun Ha Belize" onerror="this.style.display='none'" />
+        </div>
+    </div>
+
+    
+    <div class="form-card">
+        <h2>&#9993; Send Us a Message</h2>
+        <p>Complete the form and a member of the CBEA team will get back to you within 48 hours.</p>
+        <form onsubmit="submitForm(event)">
+            <div class="form-row">
+                <div class="form-group"><label>First Name</label><input type="text" placeholder="e.g. Maria" required /></div>
+                <div class="form-group"><label>Last Name</label><input type="text" placeholder="e.g. Castillo" required /></div>
+            </div>
+            <div class="form-row">
+                <div class="form-group"><label>Email Address</label><input type="email" placeholder="e.g. maria@example.com" required /></div>
+                <div class="form-group"><label>Phone / WhatsApp</label><input type="tel" placeholder="e.g. +501 600-0000" /></div>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Enquiry Type</label>
+                    <select required>
+                        <option value="">Select...</option>
+                        <option>Student Group Trip</option>
+                        <option>Individual / Family Tour</option>
+                        <option>Open Day Registration</option>
+                        <option>Partnership / Press</option>
+                        <option>University / Research Programme</option>
+                        <option>General Question</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Group Size</label>
+                    <select>
+                        <option value="">Select...</option>
+                        <option>1–5 people</option>
+                        <option>6–15 people</option>
+                        <option>16–30 people</option>
+                        <option>30+ people</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group"><label>Preferred Travel Dates</label><input type="text" placeholder="e.g. July 2025 or flexible" /></div>
+                <div class="form-group">
+                    <label>Experience Interested In</label>
+                    <select>
+                        <option value="">Select...</option>
+                        <option>Mangrove Restoration</option>
+                        <option>Snorkelling – Bacalar Chico</option>
+                        <option>PescaTours Fishing</option>
+                        <option>Maya Archaeological Tour</option>
+                        <option>Wildtracks Manatee Centre</option>
+                        <option>Lionfish Jewellery Workshop</option>
+                        <option>Multiple / Custom Package</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-row">
+                <div class="form-group"><label>Your Message</label><textarea placeholder="Tell us about your group, your interests, or any questions you have..."></textarea></div>
+            </div>
+            <button type="submit" class="btn-send">&#9993; Send Message</button>
+            <div id="form-success">&#10003; Thank you! We will be in touch within 48 hours. See you in Sarteneja! &#127807;</div>
+        </form>
+    </div>
+
+    <div class="closing">
+        <h2>&#127758; We Cannot Wait to Welcome You! &#127758;</h2>
+        <p>
+            From the mangroves of Sarteneja to the reefs of Bacalar Chico —
+            Belize's most extraordinary eco-adventure is waiting for you.
+            <br><br>
+            <b>Come explore. Give back. That's the CBEA way! &#127807;</b>
+            <br><br>
+            <a href="Experiences.html">Browse Our Experiences</a> &nbsp;|&nbsp;
+            <a href="openday.html"> Open Day</a>
+        </p>
+    </div>
+
+    <div class="logos">
+        <p>&#127807; This webpage is proudly brought to you by:</p>
+        <img src="CBEA logo.jpeg" alt="CBEA Logo" />
+        <img src="SACD.png" alt="SACD Logo" onerror="this.style.display='none'" />
+        <img src="BTB.png" alt="BTB Logo" onerror="this.style.display='none'" />
+    </div>
+
+
+    <div class="footer">
+        &copy; 2025 Corozal Bay EcoAdventures &nbsp;|&nbsp; SACD Green Ltd. &nbsp;|&nbsp; Sarteneja, Belize
+    </div>
+
+    <script>
+        function submitForm(e) {
+            e.preventDefault();
+            document.getElementById('form-success').style.display = 'block';
+            e.target.reset();
+        }
+    </script>
+
+</body>
+</html>

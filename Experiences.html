@@ -1,0 +1,524 @@
+
+<html>
+<head>
+    <title>Corozal Bay EcoAdventures - Experiences & Services</title>
+    <style>
+
+        body {
+            font-family: Georgia; color: white; text-align: center;
+            margin: 0; padding: 0;
+            background-image: url('Belize reef.jpg');
+            background-size: cover; background-position: center; background-attachment: fixed;
+        }
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(4, 22, 40, 0.65); z-index: -1; pointer-events: none;
+        }
+
+        .navbar {
+            background-color: rgba(6, 38, 66, 0.98);
+            padding: 0 30px; border-bottom: 4px solid #0fa39a;
+            position: relative; z-index: 10;
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 8px; min-height: 64px;
+        }
+        .navbar-logo img {
+            height: 48px; width: auto; border-radius: 4px;
+            background: white; padding: 4px; margin: 8px 0;
+        }
+        .navbar-links { display: flex; flex-wrap: wrap; gap: 4px; padding: 8px 0; }
+        .navbar-links a {
+            color: white; text-decoration: none; font-size: 14px;
+            font-weight: bold; padding: 9px 18px; margin: 0 2px; border-radius: 6px;
+        }
+        .navbar-links a:hover { background-color: #0fa39a; color: white; }
+        .navbar-links a.active { background-color: #1a6b2e; color: white; border: 2px solid #0fa39a; }
+
+       
+        .banner {
+            background: linear-gradient(135deg, rgba(6,38,66,0.93) 0%, rgba(10,65,40,0.88) 50%, rgba(6,38,66,0.93) 100%);
+            padding: 60px 20px 50px; position: relative; z-index: 1;
+            border-bottom: 4px solid #e8841a;
+        }
+        .banner h1 {
+            font-family: Georgia; font-size: 50px;
+            text-shadow: 2px 2px 10px black; padding: 0; background: none; margin-bottom: 6px;
+        }
+       
+        .word-corozal { color: #1a5fa0; }
+        .word-bay     { color: #0fa39a; }
+        .word-eco     { color: #1a6b2e; }
+        .word-adv     { color: #e8841a; }
+
+        .banner p { font-size: 16px; color: #c8f5e8; margin-top: 10px; letter-spacing: 3px; }
+
+        .stats-bar {
+            background-color: #e8841a;
+            display: flex; justify-content: center; flex-wrap: wrap;
+            position: relative; z-index: 1;
+        }
+        .stat-box {
+            padding: 18px 42px;
+            border-right: 1px solid rgba(255,255,255,0.25); color: white;
+        }
+        .stat-box:last-child { border-right: none; }
+        .stat-box strong { display: block; font-size: 26px; font-family: Georgia; }
+        .stat-box span { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.85; }
+
+        .intro {
+            background-color: rgba(255,255,255,0.75); color: black;
+            padding: 26px 48px; margin: 26px 40px;
+            border-left: 6px solid #e8841a;
+            border-radius: 12px; text-align: left; position: relative; z-index: 1;
+        }
+        .intro h2 {
+            font-family: Georgia; color: #062642; font-size: 22px;
+            background: none; padding: 0 0 8px 0; margin-bottom: 10px;
+            border-bottom: 2px dashed #e8841a;
+        }
+        .intro p { font-size: 15px; line-height: 1.9; color: #222; }
+
+       
+        .filter-bar {
+            display: flex; justify-content: center; gap: 10px;
+            flex-wrap: wrap; margin: 0 40px 10px;
+            position: relative; z-index: 1;
+        }
+        .filter-btn {
+            background-color: rgba(255,255,255,0.12);
+            color: white; border: 2px solid rgba(255,255,255,0.35);
+            padding: 9px 22px; border-radius: 30px;
+            font-family: Georgia; font-size: 13px; cursor: pointer;
+            font-weight: bold; letter-spacing: 1px;
+            transition: background-color 0.2s, border-color 0.2s;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background-color: #0fa39a; border-color: #0fa39a; color: white;
+        }
+
+        .experience {
+            background-color: rgba(255,255,255,0.75); color: black;
+            margin: 26px 40px; padding: 28px; border-radius: 14px;
+            text-align: left; position: relative; z-index: 1;
+        }
+
+        
+        .experience:nth-child(odd)  { border-top: 6px solid #0fa39a; }  
+        .experience:nth-child(even) { border-top: 6px solid #1a5fa0; }  
+        .experience.featured        { border-top: 6px solid #e8841a; }   
+
+       
+        .experience h1 {
+            background-color: #062642;
+            color: white; padding: 14px 20px; border-radius: 8px;
+            font-family: Georgia; font-size: 24px; margin-bottom: 14px;
+        }
+        
+        .experience.featured h1 { background-color: #1a6b2e; }
+
+        .featured-badge {
+            background-color: #e8841a; color: white; font-size: 11px;
+            font-weight: bold; letter-spacing: 2px; text-transform: uppercase;
+            padding: 3px 12px; border-radius: 30px;
+            vertical-align: middle; margin-left: 12px;
+        }
+
+       
+        .experience h2 {
+            color: white; padding: 11px 18px; border-radius: 8px;
+            font-size: 19px; margin: 16px 0 12px;
+        }
+        .h2-teal   { background-color: #0fa39a; }
+        .h2-green  { background-color: #1a6b2e; }
+        .h2-blue   { background-color: #1a5fa0; }
+        .h2-orange { background-color: #e8841a; }
+
+        .experience p { font-size: 15px; line-height: 1.8; color: #222; margin-bottom: 10px; }
+        .experience ul { font-size: 15px; line-height: 2.2; padding-left: 10px; color: #222; list-style: none; }
+        .experience ul li { padding: 3px 0 3px 8px; }
+
+       
+        .price-tag {
+            display: inline-block; background-color: #062642;
+            color: white; font-size: 14px; font-weight: bold;
+            padding: 7px 20px; border-radius: 30px; margin: 8px 0 4px; letter-spacing: 1px;
+        }
+        .price-tag span { color: #0fa39a; }
+
+        
+        .duration-pill {
+            display: inline-block;
+            background-color: rgba(15,163,154,0.1); color: #062642;
+            font-size: 13px; font-weight: bold; padding: 5px 16px;
+            border-radius: 30px; border: 1.5px solid #0fa39a; margin-left: 10px;
+        }
+
+       
+        .img-row { text-align: center; margin: 18px 0; }
+        .img-row img {
+            border-radius: 10px; box-shadow: 5px 5px 16px rgba(0,0,0,0.5);
+            margin: 8px; width: 260px; height: 175px; object-fit: cover;
+        }
+        .img-row img:nth-child(1) { border: 4px solid #0fa39a; }  
+        .img-row img:nth-child(2) { border: 4px solid #e8841a; }  
+        .img-row img:nth-child(3) { border: 4px solid #1a5fa0; }
+
+        
+        .services-section {
+
+            background: linear-gradient(135deg, rgba(6,38,66,0.93) 0%, rgba(10,65,40,0.92) 100%);
+            margin: 26px 40px; padding: 32px; border-radius: 14px;
+            position: relative; z-index: 1; border-top: 6px solid #e8841a;
+        }
+        .services-section h1 {
+            font-family: Georgia; font-size: 28px; color: #e8841a;
+            margin-bottom: 20px;
+            border-bottom: 2px solid rgba(255,255,255,0.15); padding-bottom: 12px;
+        }
+        .services-grid { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 10px; }
+        .service-box {
+            background-color: rgba(255,255,255,0.07);
+            border-radius: 12px; padding: 24px 28px; width: 240px; text-align: center;
+        }
+       
+        .service-box:nth-child(1) { border: 2px solid #0fa39a; }
+        .service-box:nth-child(2) { border: 2px solid #1a6b2e; }
+        .service-box:nth-child(3) { border: 2px solid #1a5fa0; }
+        .service-box .s-icon { font-size: 2.2rem; margin-bottom: 10px; }
+        .service-box h3 { font-family: Georgia; font-size: 17px; margin-bottom: 8px; }
+        .service-box:nth-child(1) h3 { color: #0fa39a; }
+        .service-box:nth-child(2) h3 { color: #2d9a4a; }
+        .service-box:nth-child(3) h3 { color: #5a9fd4; }
+        .service-box p { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.7; }
+
+      
+        .closing {
+            background: linear-gradient(135deg, rgba(6,38,66,0.95) 0%, rgba(10,65,40,0.93) 100%);
+            margin: 26px 40px; padding: 34px; border-radius: 14px;
+            text-align: center; color: white; position: relative; z-index: 1;
+            border: 2px solid rgba(232,132,26,0.4);
+        }
+        .closing h2 {
+            background: none; color: #e8841a; font-family: Georgia; font-size: 26px;
+            padding: 0 0 12px 0; margin-bottom: 14px;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+        }
+        .closing p { color: #c8f5e8; font-size: 16px; line-height: 1.8; }
+        .closing a { color: #e8841a; font-weight: bold; text-decoration: none; }
+        .closing a:hover { color: white; text-decoration: underline; }
+
+     
+        .logos {
+            background-color: #062642; padding: 28px 20px; margin-top: 20px;
+            position: relative; z-index: 1; border-top: 3px solid #e8841a;
+        }
+        .logos p { color: #0fa39a; font-size: 14px; font-weight: bold; letter-spacing: 2px; margin-bottom: 14px; }
+        .logos img { height: 70px; width: auto; margin: 14px 16px; background-color: white; border-radius: 8px; padding: 6px; object-fit: contain; vertical-align: middle; }
+
+        .footer { background-color: #030d18; color: #7abfa0; padding: 14px; font-size: 13px; position: relative; z-index: 2; }
+
+        a { color: #0fa39a; font-weight: bold; text-decoration: none; }
+        a:hover { color: #e8841a; text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+   
+    <div class="navbar">
+        <a href="cbea_home.html" class="navbar-logo">
+            <img src="1774136212045_image.png" alt="CBEA Logo" onerror="this.style.display='none'" />
+        </a>
+        <div class="navbar-links">
+            <a href="index.html">&#127968; Home</a>
+            <a href="sustainablity.html">&#127807; Sustainability</a>
+            <a href="Experiences.html" class="active">&#127758; Experiences</a>
+            <a href="openday.html">&#127881; Open Day</a>
+            <a href="contact.html">&#9993; Contact</a>
+        </div>
+    </div>
+
+  
+    <div class="banner">
+        <h1>
+            <span class="word-corozal">Corozal</span>
+            <span class="word-bay"> Bay </span>
+            <span class="word-eco">Eco</span><span class="word-adv">Adventures</span>
+        </h1>
+        <p>Products &amp; Services &mdash; River to Reef Experiences</p>
+    </div>
+
+    <!-- STATS BAR — orange -->
+    <div class="stats-bar">
+        <div class="stat-box"><strong>10+</strong><span>Unique Experiences</span></div>
+        <div class="stat-box"><strong>52</strong><span>Families Benefited</span></div>
+        <div class="stat-box"><strong>3</strong><span>Protected Areas</span></div>
+        <div class="stat-box"><strong>80%</strong><span>Revenue to Community</span></div>
+    </div>
+
+    
+    <div class="intro">
+        <h2>Welcome to CBEA Experiences &#127758;</h2>
+        <p>
+            Welcome to <b>Corozal Bay EcoAdventures (CBEA)</b> — Belize's premier community-based ecotourism operator,
+            based in the beautiful coastal village of <b>Sarteneja</b>, Corozal District.
+            Every experience we offer is designed to connect you with Belize's extraordinary natural and cultural heritage,
+            while directly supporting local families and the conservation of the <b>Corozal Bay Wildlife Sanctuary</b>
+            and <b>Bacalar Chico National Park</b>.
+            From mangrove restoration to Maya ruins, snorkelling UNESCO reefs to crafting lionfish jewellery —
+            every adventure here is authentic, meaningful, and unforgettable. &#127811;
+        </p>
+    </div>
+
+   
+    <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterCards('all', this)">&#127758; All</button>
+        <button class="filter-btn" onclick="filterCards('conservation', this)">&#127807; Conservation</button>
+        <button class="filter-btn" onclick="filterCards('marine', this)">&#129419; Marine</button>
+        <button class="filter-btn" onclick="filterCards('cultural', this)">&#127981; Cultural</button>
+        <button class="filter-btn" onclick="filterCards('wildlife', this)">&#129415; Wildlife</button>
+        <button class="filter-btn" onclick="filterCards('artisan', this)">&#10024; Artisan</button>
+    </div>
+
+   
+    <div class="experience featured" data-cat="conservation">
+        <h1>&#127807; Mangrove Restoration &amp; New River Expedition
+            <span class="featured-badge">&#9733; Most Popular</span>
+        </h1>
+        <p>
+            <font color="#1a6b2e"><b>Mangrove Restoration</b></font> is CBEA's flagship experience — a full-day journey along the ancient Maya
+            trade route of the <b>New River</b>, one of northern Belize's most ecologically rich waterways.
+            SACD conservation experts guide you through a deep educational session on the vital role mangroves
+            play as natural storm barriers, carbon stores, and marine nurseries.
+            Each participant then prepares and plants their own seedlings in the <b>Warrie Bight</b> coastal restoration zone
+            — making a direct, lasting contribution to Belize's shoreline.
+        </p>
+        <div style="margin: 6px 0;">
+            <span class="price-tag">From <span>BZ$210</span> / person</span>
+            <span class="duration-pill">&#9201; Full Day &mdash; 6 to 8 hours</span>
+        </div>
+        <h2 class="h2-green">&#127807; What's Included</h2>
+        <ul>
+            <li>&#10004; Boat journey through the New River's ecological corridor</li>
+            <li>&#10004; Educational session with SACD conservation experts</li>
+            <li>&#10004; Hands-on mangrove seedling preparation &amp; coastal planting</li>
+            <li>&#10004; Species identification — migratory birds and crocodiles</li>
+            <li>&#10004; Learn how mangroves protect coastlines, store carbon, and nursery marine life</li>
+            <li>&#10004; All equipment and safety gear provided</li>
+        </ul>
+        <div class="img-row">
+            <img src="project_-mangroves-in-madagascar-eden-reforestation-2-medium.png" />
+          
+        </div>
+    </div>
+
+   
+    <div class="experience" data-cat="marine">
+        <h1>&#129419; Snorkelling &mdash; Bacalar Chico Marine Reserve</h1>
+        <p>
+            <font color="#1a5fa0"><b>Bacalar Chico Marine Reserve</b></font> is a UNESCO World Heritage Site and one of the most
+            biodiverse reef ecosystems in the entire Caribbean. CBEA guides take you through crystal-clear waters
+            teeming with coral formations and colourful marine species.
+            A highlight of this tour is crossing the <b>historic artificial channel</b> that marks the territorial
+            boundary between Belize and Mexico — a fascinating intersection of nature and history.
+        </p>
+        <div style="margin: 6px 0;">
+            <span class="price-tag">From <span>BZ$558</span> / person</span>
+            <span class="duration-pill">&#9201; Full Day &mdash; 7 to 9 hours</span>
+        </div>
+        <h2 class="h2-teal">&#129419; What's Included</h2>
+        <ul>
+            <li>&#10004; Guided snorkel over coral formations &amp; diverse marine life</li>
+            <li>&#10004; UNESCO World Heritage Site — Bacalar Chico Marine Reserve</li>
+            <li>&#10004; Cross the historic Belize–Mexico territorial boundary channel</li>
+            <li>&#10004; On-site museum visit for historical &amp; cultural context</li>
+            <li>&#10004; Responsible no-fins reef protocol to protect coral</li>
+            <li>&#10004; Life jackets and all safety equipment provided</li>
+        </ul>
+        <div class="img-row">
+            <img src="bacalar%20chico.jfif" />
+           
+        </div>
+    </div>
+
+   
+    <div class="experience" data-cat="cultural">
+        <h1>&#127907; Traditional PescaTours Fishing</h1>
+        <p>
+            <font color="#e8841a"><b>PescaTours</b></font> invites you to join Sarteneja's fishing families at sunrise for an
+            authentic dawn-to-afternoon voyage on the bay. You will learn ancestral fishing techniques —
+            stingray-trap use, net casting, and line fishing — methods passed carefully down through generations.
+            The morning ends at a local family home where the fresh catch is prepared into a
+            traditional Belizean lunch right before your eyes.
+        </p>
+        <div style="margin: 6px 0;">
+            <span class="price-tag">From <span>BZ$258</span> / person</span>
+            <span class="duration-pill">&#9201; Half to Full Day &mdash; 5 to 7 hours</span>
+        </div>
+        <h2 class="h2-orange">&#127907; What's Included</h2>
+        <ul>
+            <li>&#10004; Early morning departure from Sarteneja's main dock</li>
+            <li>&#10004; Ancestral stingray-trap, net casting &amp; line fishing techniques</li>
+            <li>&#10004; Sustainable catch management hands-on demonstration</li>
+            <li>&#10004; Traditional Belizean lunch cooked with the morning's fresh catch</li>
+            <li>&#10004; Local storytelling and cultural exchange with fishing families</li>
+            <li>&#10004; Directly supports 7 local PescaTours fishing families</li>
+        </ul>
+        <div class="img-row">
+            <img src="fishing.jfif" />
+           
+        </div>
+    </div>
+
+   
+    <div class="experience" data-cat="cultural">
+        <h1>&#127981; Maya Archaeological Zone Tour</h1>
+        <p>
+            <font color="#1a5fa0"><b>Belize's ancient Maya civilisation</b></font> shaped every corner of this coastline.
+            CBEA takes you to two complementary sites — the coastal trade hub of <b>Cerros</b>,
+            once a key maritime centre where goods like cacao, jade, and obsidian were traded between Belize and Mexico,
+            and the magnificent <b>Altun Ha</b>, one of Belize's most celebrated archaeological treasures.
+            Climb majestic pyramids, explore ceremonial plazas, and hear the stories of a civilisation that flourished here for millennia.
+        </p>
+        <div style="margin: 6px 0;">
+            <span class="price-tag">From <span>BZ$170</span> / person</span>
+            <span class="duration-pill">&#9201; Full Day &mdash; 7 to 8 hours</span>
+        </div>
+        <h2 class="h2-blue">&#127981; What's Included</h2>
+        <ul>
+            <li>&#10004; Guided visit to Cerros — ancient coastal Maya maritime trade centre</li>
+            <li>&#10004; Exploration of Altun Ha's temples, plazas &amp; carved monuments</li>
+            <li>&#10004; Expert local guide with deep cultural and historical knowledge</li>
+            <li>&#10004; Learn how the New River served as an ancient Maya trade artery</li>
+            <li>&#10004; Photography opportunities at both UNESCO-recognised sites</li>
+            <li>&#10004; Transport between both sites included</li>
+        </ul>
+        <div class="img-row">
+            <img src="maya site.jfif" />
+            
+        </div>
+    </div>
+
+    
+    <div class="experience" data-cat="wildlife">
+        <h1>&#129415; Wildtracks Manatee Rescue Centre</h1>
+        <p>
+            <font color="#0fa39a"><b>Wildtracks</b></font> is Belize's leading rehabilitation facility for endangered manatees and primates —
+            and one of CBEA's most treasured partner organisations.
+            During this behind-the-scenes visit, the Wildtracks scientific team shares their specialised
+            conservation and rehabilitation methodologies.
+            Participants get hands-on involvement, assisting in <b>seagrass collection</b> — the primary food source
+            for manatees — and observing feeding sessions with rehabilitating animals up close.
+        </p>
+        <div style="margin: 6px 0;">
+            <span class="price-tag"><span>Included</span> in group packages</span>
+            <span class="duration-pill">&#9201; Half Day &mdash; 3 to 4 hours</span>
+        </div>
+        <h2 class="h2-teal">&#129415; What's Included</h2>
+        <ul>
+            <li>&#10004; Guided tour of manatee &amp; primate rehabilitation facility</li>
+            <li>&#10004; Learn specialist conservation and rehabilitation methodologies</li>
+            <li>&#10004; Hands-on seagrass collection for manatee feeding</li>
+            <li>&#10004; Observe feeding sessions with rehabilitating manatees</li>
+            <li>&#10004; Q&amp;A with Wildtracks' internationally recognised science team</li>
+            <li>&#10004; Understand the link between seagrass health and manatee survival</li>
+        </ul>
+        <div class="img-row">
+            <img src="manantees.jfif" />
+            
+        </div>
+    </div>
+
+    <div class="experience" data-cat="artisan">
+        <h1>&#10024; Lionfish Jewellery Workshop</h1>
+        <p>
+            In the waters of Belize, the <font color="#e8841a"><b>lionfish</b></font> poses a serious ecological threat —
+            preying on native species and damaging vital coral reefs.
+            In response, a collective of Sarteneja's women artisans developed an extraordinary solution:
+            they transform lionfish fins, sourced directly from local fishers, into <b>stunning handcrafted jewellery</b>
+            — earrings, necklaces, and bracelets known for their beauty and uniqueness.
+        </p>
+        <div style="margin: 6px 0;">
+            <span class="price-tag">From <span>BZ$90</span> / person</span>
+            <span class="duration-pill">&#9201; 2 to 3 hours</span>
+        </div>
+        <h2 class="h2-orange">&#10024; What's Included</h2>
+        <ul>
+            <li>&#10004; Learn about lionfish's ecological threat to Caribbean reefs</li>
+            <li>&#10004; Hands-on jewellery crafting with local women artisans</li>
+            <li>&#10004; Design and take home your own unique handcrafted piece</li>
+            <li>&#10004; Fins sourced directly from Sarteneja's fishing community</li>
+            <li>&#10004; Directly supports 3 women-led artisan families</li>
+            <li>&#10004; Contributes to ongoing invasive species reef conservation efforts</li>
+        </ul>
+        <div class="img-row">
+            <img src="lionfish.jpg" />
+            
+        </div>
+    </div>
+
+   
+    <div class="services-section">
+        <h1>&#127968; Basic Services</h1>
+        <div class="services-grid">
+            <div class="service-box">
+                <div class="s-icon">&#127968;</div>
+                <h3>Accommodation</h3>
+                <p>Sarteneja Inn (family hotel), community homestays with local families, and eco-camping at Warrie Bight campsite beside the sanctuary waters.</p>
+            </div>
+            <div class="service-box">
+                <div class="s-icon">&#127869;</div>
+                <h3>Full Board Meals</h3>
+                <p>Breakfast, lunch and dinner by community cooks. Vegetarian, vegan, and gluten-free options available on request.</p>
+            </div>
+            <div class="service-box">
+                <div class="s-icon">&#128652;</div>
+                <h3>Transfers</h3>
+                <p>Pick-up from Philip Goldson International Airport, Ladyville, or Chetumal. Local transport included throughout all activities.</p>
+            </div>
+        </div>
+    </div>
+
+   
+    <div class="closing">
+        <h2>&#127758; Ready to Book Your Eco-Adventure? &#127758;</h2>
+        <p>
+            We hope these experiences have inspired you to visit beautiful <b>Sarteneja, Belize</b>!
+            Whether you are a student group, solo traveller, or tour operator —
+            CBEA will craft the perfect itinerary around your interests, schedule, and budget.
+            <br><br>
+            <b>Come explore. Give back. That's the CBEA way! &#127807;</b>
+            <br><br>
+            Visit our <a href="cbea_contact.html">Contact Page</a> to book or ask us anything!
+        </p>
+        <p style="margin-top:22px; color:#f0a050;"><b>&#127909; Watch: Belize Ecotourism in Action!</b></p>
+        <a href="https://youtu.be/AhZLES1k768?si=W_125LJzgZbY840W" target="_blank">
+            <img src="Belize ecotourism.jfif" width="560" height="315"
+                 style="border-radius:10px; border:3px solid #e8841a; box-shadow:0 4px 20px rgba(0,0,0,0.5);"
+                 onerror="this.src='https://img.youtube.com/vi/AhZLES1k768/0.jpg'" />
+        </a>
+        <p style="color:#c8f5e8; margin-top:8px;"><i>Click the image above to watch the video!</i></p>
+    </div>
+
+  <div class="logos">
+        <p>&#127807; This webpage is proudly brought to you by:</p>
+        <img src="CBEA logo.jpeg" alt="CBEA Logo" />
+        <img src="SACD.png" alt="SACD Logo" onerror="this.style.display='none'" />
+        <img src="BTB.png" alt="BTB Logo" onerror="this.style.display='none'" />
+    </div>
+
+
+    <div class="footer">
+        &copy; 2025 Corozal Bay EcoAdventures &nbsp;|&nbsp; SACD Green Ltd. &nbsp;|&nbsp; Sarteneja, Belize
+    </div>
+
+    <script>
+        function filterCards(cat, btn) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.querySelectorAll('.experience').forEach(card => {
+                card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>

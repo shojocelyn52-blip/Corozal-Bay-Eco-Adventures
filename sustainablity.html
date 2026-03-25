@@ -1,0 +1,367 @@
+
+<html>
+<head>
+    <title>Corozal Bay EcoAdventures - Sustainability</title>
+    <style>
+
+        body {
+            font-family: Georgia; color: white; text-align: center;
+            margin: 0; padding: 0;
+            background-image: url('Belize reef.jpg');
+            background-size: cover; background-position: center; background-attachment: fixed;
+        }
+        body::before {
+            content: ""; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(4, 22, 40, 0.65); z-index: -1; pointer-events: none;
+        }
+
+        .navbar {
+            background-color: rgba(6, 38, 66, 0.98);
+            padding: 0 30px; border-bottom: 4px solid #0fa39a;
+            position: relative; z-index: 10;
+            display: flex; align-items: center; justify-content: space-between;
+            flex-wrap: wrap; gap: 8px; min-height: 64px;
+        }
+        .navbar-logo img {
+            height: 48px; width: auto; border-radius: 4px;
+            background: white; padding: 4px; margin: 8px 0;
+        }
+        .navbar-links { display: flex; flex-wrap: wrap; gap: 4px; padding: 8px 0; }
+        .navbar-links a {
+            color: white; text-decoration: none; font-size: 14px;
+            font-weight: bold; padding: 9px 18px; margin: 0 2px; border-radius: 6px;
+        }
+        .navbar-links a:hover { background-color: #0fa39a; color: white; }
+        .navbar-links a.active { background-color: #1a6b2e; color: white; border: 2px solid #0fa39a; }
+
+        .banner {
+            background: linear-gradient(135deg, rgba(6,38,66,0.93) 0%, rgba(10,65,40,0.88) 50%, rgba(6,38,66,0.93) 100%);
+            padding: 60px 20px 50px; position: relative; z-index: 1;
+            border-bottom: 4px solid #e8841a;
+        }
+        .banner h1 {
+            font-family: Georgia; font-size: 50px;
+            text-shadow: 2px 2px 10px black; padding: 0; background: none; margin-bottom: 6px;
+        }
+        .word-corozal { color: #1a5fa0; }
+        .word-bay     { color: #0fa39a; }
+        .word-eco     { color: #1a6b2e; }
+        .word-adv     { color: #e8841a; }
+        .banner p { font-size: 16px; color: #c8f5e8; margin-top: 10px; letter-spacing: 3px; }
+
+        .stats-bar {
+            background-color: #e8841a;
+            display: flex; justify-content: center; flex-wrap: wrap;
+            position: relative; z-index: 1;
+        }
+        .stat-box {
+            padding: 18px 42px;
+            border-right: 1px solid rgba(255,255,255,0.25); color: white;
+        }
+        .stat-box:last-child { border-right: none; }
+        .stat-box strong { display: block; font-size: 26px; font-family: Georgia; }
+        .stat-box span { font-size: 12px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.85; }
+
+       
+        .intro {
+            background-color: rgba(255,255,255,0.75); color: black;
+            padding: 26px 48px; margin: 26px 40px;
+            border-left: 6px solid #e8841a;
+            border-radius: 12px; text-align: left; position: relative; z-index: 1;
+        }
+        .intro h2 {
+            font-family: Georgia; color: #062642; font-size: 22px;
+            background: none; padding: 0 0 8px 0; margin-bottom: 10px;
+            border-bottom: 2px dashed #e8841a;
+        }
+        .intro p { font-size: 15px; line-height: 1.9; color: #222; }
+
+        
+        .section-card {
+            background-color: rgba(255,255,255,0.75); color: black;
+            margin: 26px 40px; padding: 28px; border-radius: 14px;
+            text-align: left; position: relative; z-index: 1;
+        }
+        .section-card.teal-top   { border-top: 6px solid #0fa39a; }
+        .section-card.green-top  { border-top: 6px solid #1a6b2e; }
+        .section-card.blue-top   { border-top: 6px solid #1a5fa0; }
+        .section-card.orange-top { border-top: 6px solid #e8841a; }
+
+        .section-card h1 {
+            color: white; padding: 14px 20px; border-radius: 8px;
+            font-family: Georgia; font-size: 24px; margin-bottom: 14px;
+        }
+        .navy-h1   { background-color: #062642; }
+        .green-h1  { background-color: #1a6b2e; }
+        .blue-h1   { background-color: #1a5fa0; }
+        .orange-h1 { background-color: #c06010; }
+
+        .section-card h2 {
+            color: white; padding: 11px 18px; border-radius: 8px;
+            font-size: 19px; margin: 16px 0 12px;
+        }
+        .h2-teal   { background-color: #0fa39a; }
+        .h2-green  { background-color: #1a6b2e; }
+        .h2-blue   { background-color: #1a5fa0; }
+        .h2-orange { background-color: #e8841a; }
+
+        .section-card p { font-size: 15px; line-height: 1.8; color: #222; margin-bottom: 10px; }
+        .section-card ul { font-size: 15px; line-height: 2.2; padding-left: 10px; color: #222; list-style: none; }
+        .section-card ul li { padding: 3px 0 3px 8px; }
+
+       
+        .three-col { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin: 16px 0; }
+        .tbl-box { border-radius: 12px; padding: 24px 20px; width: 220px; text-align: center; color: white; }
+        .tbl-box.green-tb  { background-color: #1a6b2e; border: 3px solid #2d9a4a; }
+        .tbl-box.teal-tb   { background-color: #0fa39a; border: 3px solid #12c0b6; }
+        .tbl-box.orange-tb { background-color: #e8841a; border: 3px solid #f09a30; }
+        .tbl-box .t-icon { font-size: 2.4rem; margin-bottom: 10px; }
+        .tbl-box h3 { font-family: Georgia; font-size: 17px; margin-bottom: 8px; }
+        .tbl-box p { font-size: 13px; opacity: 0.9; line-height: 1.65; margin: 0; }
+
+       
+        .swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 14px 0; }
+        .swot-box { border-radius: 10px; padding: 18px 20px; text-align: left; background-color: rgba(255,255,255,0.55); }
+        .swot-box.sw-green  { border: 2px solid #1a6b2e; }
+        .swot-box.sw-orange { border: 2px solid #e8841a; }
+        .swot-box.sw-teal   { border: 2px solid #0fa39a; }
+        .swot-box.sw-blue   { border: 2px solid #1a5fa0; }
+        .swot-box h3 { font-family: Georgia; font-size: 16px; margin-bottom: 10px; }
+        .swot-box.sw-green  h3 { color: #1a6b2e; }
+        .swot-box.sw-orange h3 { color: #c06010; }
+        .swot-box.sw-teal   h3 { color: #0a7c6e; }
+        .swot-box.sw-blue   h3 { color: #1a5fa0; }
+        .swot-box ul { font-size: 13px; line-height: 1.9; color: #222; list-style: none; padding: 0; }
+        .swot-box ul li::before { content: "• "; font-weight: bold; }
+
+       
+        .img-row { text-align: center; margin: 18px 0; }
+        .img-row img {
+            border-radius: 10px; box-shadow: 5px 5px 16px rgba(0,0,0,0.5);
+            margin: 8px; width: 260px; height: 175px; object-fit: cover;
+        }
+        .img-row img:nth-child(1) { border: 4px solid #0fa39a; }
+        .img-row img:nth-child(2) { border: 4px solid #e8841a; }
+        .img-row img:nth-child(3) { border: 4px solid #1a5fa0; }
+
+       
+        .closing {
+            background: linear-gradient(135deg, rgba(6,38,66,0.95) 0%, rgba(10,65,40,0.93) 100%);
+            margin: 26px 40px; padding: 34px; border-radius: 14px;
+            text-align: center; color: white; position: relative; z-index: 1;
+            border: 2px solid rgba(232,132,26,0.4);
+        }
+        .closing h2 {
+            background: none; color: #e8841a; font-family: Georgia; font-size: 26px;
+            padding: 0 0 12px 0; margin-bottom: 14px;
+            border-bottom: 2px solid rgba(255,255,255,0.2);
+        }
+        .closing p { color: #c8f5e8; font-size: 16px; line-height: 1.8; }
+        .closing a { color: #e8841a; font-weight: bold; text-decoration: none; }
+        .closing a:hover { color: white; text-decoration: underline; }
+
+      
+        .logos {
+            background-color: #062642; padding: 28px 20px; margin-top: 20px;
+            position: relative; z-index: 1; border-top: 3px solid #e8841a;
+        }
+        .logos p { color: #0fa39a; font-size: 14px; font-weight: bold; letter-spacing: 2px; margin-bottom: 14px; }
+        .logos img { height: 70px; width: auto; margin: 14px 16px; background-color: white; border-radius: 8px; padding: 6px; object-fit: contain; vertical-align: middle; }
+
+        .footer { background-color: #030d18; color: #7abfa0; padding: 14px; font-size: 13px; position: relative; z-index: 2; }
+
+        a { color: #0fa39a; font-weight: bold; text-decoration: none; }
+        a:hover { color: #e8841a; text-decoration: underline; }
+
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <a href="cbea_home.html" class="navbar-logo">
+            <img src="1774136212045_image.png" alt="CBEA Logo" onerror="this.style.display='none'" />
+        </a>
+        <div class="navbar-links">
+            <a href="index.html">&#127968; Home</a>
+            <a href="sustainablity.html" class="active">&#127807; Sustainability</a>
+            <a href="Experiences.html">&#127758; Experiences</a>
+            <a href="openday.html">&#127881; Open Day</a>
+            <a href="contact.html">&#9993; Contact</a>
+        </div>
+    </div>
+
+    <div class="banner">
+        <h1>
+            <span class="word-corozal">Corozal</span>
+            <span class="word-bay"> Bay </span>
+            <span class="word-eco">Eco</span><span class="word-adv">Adventures</span>
+        </h1>
+        <p>Sustainability &mdash; People, Planet &amp; Prosperity</p>
+    </div>
+
+    <div class="stats-bar">
+        <div class="stat-box"><strong>80%</strong><span>Revenue to Community</span></div>
+        <div class="stat-box"><strong>52</strong><span>Families Benefited</span></div>
+        <div class="stat-box"><strong>2</strong><span>Sanctuaries Protected</span></div>
+        <div class="stat-box"><strong>12.3%</strong><span>Ecotourism CAGR</span></div>
+    </div>
+
+    <div class="intro">
+        <h2>Why Sustainability Matters to Us &#127807;</h2>
+        <p>
+            At <b>Corozal Bay EcoAdventures</b>, sustainability is not a marketing term — it is the foundation of everything we do.
+            CBEA was created specifically to reduce SACD's reliance on grants by generating revenue through
+            responsible ecotourism, while ensuring that <b>every visit protects ecosystems, uplifts communities, and creates lasting change</b>.
+            Belize is recognised by the UNWTO as one of the world's top four eco/sustainable tourism destinations,
+            and CBEA is proud to be at the heart of that recognition.
+        </p>
+    </div>
+
+    
+    <div class="section-card green-top">
+        <h1 class="green-h1">&#9971; The Triple Bottom Line</h1>
+        <p>CBEA measures its success through the <b>Triple Bottom Line</b> — three equally important pillars that guide every decision, every experience, and every partnership we form.</p>
+        <div class="three-col">
+            <div class="tbl-box green-tb">
+                <div class="t-icon">&#127807;</div>
+                <h3>Ecological</h3>
+                <p>Protecting mangroves, coral reefs, seagrass beds, and iconic wildlife like the West Indian manatee through responsible tourism protocols.</p>
+            </div>
+            <div class="tbl-box teal-tb">
+                <div class="t-icon">&#129309;</div>
+                <h3>Social</h3>
+                <p>52 families across Sarteneja, Chunox, and Corozal benefit directly — women-led homestays, lionfish artisans, PescaTours families, and local guides.</p>
+            </div>
+            <div class="tbl-box orange-tb">
+                <div class="t-icon">&#127808;</div>
+                <h3>Economic</h3>
+                <p>Generating sustainable revenue to reduce SACD's grant dependency and creating stable employment — diversifying livelihoods beyond traditional fishing.</p>
+            </div>
+        </div>
+    </div>
+
+   
+    <div class="section-card teal-top">
+        <h1 class="navy-h1">&#9989; Our Best Practices</h1>
+
+        <h2 class="h2-green">&#127807; Environmental Practices</h2>
+        <ul>
+            <li>&#10004; Wastewater treatment systems in place at CBEA facilities</li>
+            <li>&#10004; Solar panel installation currently underway at Warrie Bight</li>
+            <li>&#10004; Mandatory life jackets &amp; responsible no-fins snorkelling protocol to protect coral</li>
+            <li>&#10004; Sun-protection clothing encouraged — no chemical sunscreen in reef areas</li>
+            <li>&#10004; Tourism carrying capacity studies planned for snorkelling and archaeological zones</li>
+            <li>&#10004; Active work to eliminate single-use plastics across all supplier operations</li>
+        </ul>
+
+        <h2 class="h2-teal">&#129309; Social Practices</h2>
+        <ul>
+            <li>&#10004; Inclusion of diverse community families across all tourism activities</li>
+            <li>&#10004; Women empowered through cooking, homestays, lionfish crafts, and nature guiding</li>
+            <li>&#10004; Transparent social responsibility policies against child labour and exploitation</li>
+            <li>&#10004; Training programmes for local guides and community members each season</li>
+            <li>&#10004; Annual financial reports shared openly with the community and SACD</li>
+        </ul>
+
+        <h2 class="h2-orange">&#127808; Economic Practices</h2>
+        <ul>
+            <li>&#10004; 80% of all tourism revenues flow directly into the local community value chain</li>
+            <li>&#10004; Payments to guides, cooks, artisans, and fishing families set by the community itself</li>
+            <li>&#10004; 20% supports SACD conservation operations and future reinvestment</li>
+            <li>&#10004; Local suppliers and producers prioritised for all purchases</li>
+            <li>&#10004; Financial transparency through annual reports to community and all stakeholders</li>
+        </ul>
+
+        <div class="img-row">
+            <img src="mangrove sustain.jpg" alt="Mangrove conservation Belize" onerror="this.style.display='none'" />
+            <img src="manantees.jfif" alt="Manatee conservation Belize" onerror="this.style.display='none'" />
+            <img src="bacalar%20chico.jfif" alt="Coral reef Belize" onerror="this.style.display='none'" />
+        </div>
+    </div>
+
+    
+    <div class="section-card orange-top">
+        <h1 class="orange-h1">&#128202; SWOT Analysis</h1>
+        <p>An honest assessment of where CBEA stands today — and where we are heading.</p>
+        <div class="swot-grid">
+            <div class="swot-box sw-green">
+                <h3>&#9650; Strengths</h3>
+                <ul>
+                    <li>Business model with strong social and environmental purpose</li>
+                    <li>SACD co-manages protected areas — manatee and reef habitats</li>
+                    <li>Strong relationships with local partner organisations</li>
+                    <li>Network of collaborators and experts across many fields</li>
+                    <li>Facilities designed for multiple tourism activities</li>
+                </ul>
+            </div>
+            <div class="swot-box sw-orange">
+                <h3>&#9660; Weaknesses</h3>
+                <ul>
+                    <li>Financial sustainability still depends on the NGO</li>
+                    <li>Operational processes not yet fully defined</li>
+                    <li>Client base still under active development</li>
+                    <li>Dependence on a single accommodation establishment</li>
+                    <li>Limited promotional and sales personnel</li>
+                </ul>
+            </div>
+            <div class="swot-box sw-teal">
+                <h3>&#8599; Opportunities</h3>
+                <ul>
+                    <li>Proximity to international airports — Belize, Chetumal, Tulum</li>
+                    <li>Proximity to Mexican border and Maya World tourism route</li>
+                    <li>Growing global demand for eco and sustainable tourism</li>
+                    <li>Increase in outdoor activity bookings post-pandemic</li>
+                    <li>Community preserves authentic Maya and fishing heritage</li>
+                </ul>
+            </div>
+            <div class="swot-box sw-blue">
+                <h3>&#9888; Threats</h3>
+                <ul>
+                    <li>High vulnerability to weather events and public health crises</li>
+                    <li>Similar ecotourism offerings growing in the Belize market</li>
+                    <li>Risk of coastal development and mangrove deforestation</li>
+                    <li>Ecosystem pollution and illegal fishing pressures</li>
+                    <li>Potential changes in tourism and environmental legislation</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+   
+    <div class="section-card blue-top">
+        <h1 class="blue-h1">&#127909; Sustainability in Action</h1>
+        <p>Watch how responsible ecotourism is making a real difference in Belize's coastal communities and ecosystems.</p>
+        <a href="https://youtu.be/JDn2li1xL2s?si=WWHkf0gmisfXDa-f" target="_blank">
+            <img src="Belize%20reef.jpg" width="560" height="315"
+                 style="border-radius:10px; border:3px solid #e8841a; box-shadow:0 4px 20px rgba(0,0,0,0.5);"
+                 onerror="this.src='https://img.youtube.com/vi/AhZLES1k768/0.jpg'" />
+        </a>
+        </div>
+
+
+    <div class="closing">
+        <h2>&#127758; Together We Protect Belize &#127758;</h2>
+        <p>
+            Every experience you book with CBEA is a direct vote for a more sustainable Belize.
+            Your visit protects mangroves, feeds manatees, and puts food on the tables of 52 local families.
+            <br><br>
+            <b>Travel with purpose. That's the CBEA way! &#127807;</b>
+            <br><br>
+            <a href="Experiences.html">Browse Our Experiences</a> &nbsp;|&nbsp;
+            <a href="contact.html">Get in Touch</a>
+        </p>
+    </div>
+
+    <div class="logos">
+        <p>&#127807; This webpage is proudly brought to you by:</p>
+        <img src="CBEA logo.jpeg" alt="CBEA Logo" />
+        <img src="SACD.png" alt="SACD Logo" onerror="this.style.display='none'" />
+        <img src="BTB.png" alt="BTB Logo" onerror="this.style.display='none'" />
+    </div>
+
+    <div class="footer">
+        &copy; 2025 Corozal Bay EcoAdventures &nbsp;|&nbsp; SACD Green Ltd. &nbsp;|&nbsp; Sarteneja, Belize
+    </div>
+
+</body>
+</html>
